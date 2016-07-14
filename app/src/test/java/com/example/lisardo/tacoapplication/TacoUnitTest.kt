@@ -14,7 +14,13 @@ open class TacoUnitTest {
     @Throws(Exception::class)
     fun today_isCorrect() {
         val date = Date()
-        val today = DateUtils.isToday(date.time)
-        assert(today)
+        val tacoDay = DateUtils.isToday(date.time)
+        assertTrue(tacoDay)
     }
+
+    @Test(expected = ArithmeticException::class)
+    fun explodeUniverse_isCorrect() {
+        val taco = 1/0
+    }
+
 }/**/
