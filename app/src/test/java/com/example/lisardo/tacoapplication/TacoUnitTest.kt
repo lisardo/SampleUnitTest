@@ -8,11 +8,13 @@ import org.junit.Assert.*
 /**
  * To work on unit tests, switch the Test Artifact in the Build Variants view.
  */
-class TacoUnitTest {
+open class TacoUnitTest {
+
+    @Test
     @Throws(Exception::class)
     fun today_isCorrect() {
         val date = Date()
         val today = DateUtils.isToday(date.time)
-        assertTrue(today)
+        assert(today)
     }
 }/**/
