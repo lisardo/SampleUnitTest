@@ -20,7 +20,7 @@ open class TacoUnitTest {
 
     @Test(expected = ArithmeticException::class)
     fun explodeUniverse_isCorrect() {
-        val taco = 1/0
+        1/0
     }
 
 }/**/
