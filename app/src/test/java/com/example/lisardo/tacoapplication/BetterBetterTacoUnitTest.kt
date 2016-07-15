@@ -16,14 +16,14 @@ import java.util.*
 class BetterBetterTacoUnitTest {
 
     @Test
-    fun today_isCorrect() {
+    fun readStringFromContext_LocalizedString() {
         val activity = Robolectric.setupActivity(TacoActivity::class.java)
-        val text = TacoText(activity.baseContext).getText()
+        val text = TacoText(activity.baseContext).getTacoText()
         assertEquals(text, FAKE_STRING)
     }
 
     companion object {
-        private val FAKE_STRING = "Hello World"
+        private val FAKE_STRING = "Taco"
     }
 
 }

@@ -12,6 +12,7 @@ import org.mockito.runners.MockitoJUnitRunner
 import android.content.SharedPreferences
 import android.text.format.DateUtils
 import com.example.lisardo.tacoapplication.R
+import com.example.lisardo.tacoapplication.TacoActivity
 import com.example.lisardo.tacoapplication.TacoText
 import org.junit.Assert.*
 import java.util.*
@@ -22,24 +23,18 @@ class BetterTacoUnitTest {
     @Mock
     internal var mockContext: Context? = null
 
-    @Test
-    fun readStringFromContext_LocalizedString() {
-        `when`(mockContext!!.getString(R.string.hello_world)).thenReturn(FAKE_STRING)
-        val myObjectUnderTest = TacoText(mockContext!!)
-        val result = myObjectUnderTest.getText()
-        assertEquals(result, FAKE_STRING)
-//        assertThat(result, `is`(FAKE_STRING))
-    }
+    @Mock
+    internal var activity: TacoActivity? = null
 
     @Test
-    @Throws(Exception::class)
-    fun today_isCorrect() {
-        val date = Date()
-        val tacoDay = DateUtils.isToday(date.time)
-        assertTrue(tacoDay)
+    fun readStringFromContext_LocalizedString() {
+        `when`(mockContext!!.getString(R.string.taco)).thenReturn(FAKE_STRING)
+        `when`(activity!!.baseContext).thenReturn(mockContext)
+        val result = activity!!.baseContext.getString(R.string.taco)
+        assertEquals(result, FAKE_STRING)
     }
 
     companion object {
-        private val FAKE_STRING = "HELLO WORLD"
+        private val FAKE_STRING = "Taco"
     }
 }
